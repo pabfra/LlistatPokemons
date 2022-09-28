@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.llistatpokemons.databinding.FragmentFirstBinding;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FirstFragment extends Fragment {
 
@@ -29,13 +33,17 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-            }
-        });
+        String[] pokemonsPrueba = {"Bulbassaur", "Pikachu", "Charmander"};
+        ArrayList<String> items = new ArrayList<>(Arrays.asList(pokemonsPrueba));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                getContext(),
+                R.layout.lv_pokemon_row,
+                R.id.txtListName,
+                items
+        );
+
+        binding.lvPokemons.setAdapter(adapter);
+
     }
 
     @Override
