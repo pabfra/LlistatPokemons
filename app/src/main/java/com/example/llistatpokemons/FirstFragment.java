@@ -14,6 +14,8 @@ import com.example.llistatpokemons.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class FirstFragment extends Fragment {
 
@@ -44,6 +46,16 @@ public class FirstFragment extends Fragment {
 
         binding.lvPokemons.setAdapter(adapter);
 
+    }
+
+    public void refresh() {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            PokemonApi api = new PokemonApi();
+            ArrayList<Pokemon>  pokemons = api.getPokemons();
+
+
+        });
     }
 
     @Override
