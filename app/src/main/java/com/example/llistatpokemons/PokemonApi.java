@@ -17,7 +17,7 @@ public class PokemonApi {
             String result = HttpUtils.get(url);
 
             JSONObject jsonResult = new JSONObject(result);
-            JSONArray results = new jsonResult.getJSONArray("results");
+            JSONArray results = jsonResult.getJSONArray("results");
 
             ArrayList<Pokemon> pokemons = new ArrayList<>();
             for(int i = 0; i < results.length(); i++) {
@@ -29,6 +29,7 @@ public class PokemonApi {
 
                 String resultDetails = HttpUtils.get(pokemon.getDetailsUrl());
                 JSONObject jsonDetails = new JSONObject(resultDetails);
+                JSONObject sprites = new JSONObject()
                 pokemon.setHeight(jsonDetails.getInt("height"));
                 pokemons.add(pokemon);
             }
@@ -39,5 +40,8 @@ public class PokemonApi {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return null;
+
+
     }
 }
