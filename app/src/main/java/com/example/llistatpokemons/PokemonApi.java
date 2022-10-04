@@ -29,7 +29,9 @@ public class PokemonApi {
 
                 String resultDetails = HttpUtils.get(pokemon.getDetailsUrl());
                 JSONObject jsonDetails = new JSONObject(resultDetails);
-                JSONObject sprites = new JSONObject()
+                JSONObject sprites = jsonDetails.getJSONObject("sprites");
+                String spriteDefault = sprites.getString("front_default");
+                pokemon.setImage(spriteDefault);
                 pokemon.setHeight(jsonDetails.getInt("height"));
                 pokemons.add(pokemon);
             }
