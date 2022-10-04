@@ -4,7 +4,9 @@
     tools:context="com.example.llistatpokemons.MainActivity">
     <item
         android:id="@+id/refresh"
-        android:title="Refresh" />
+        android:icon="@drawable/ic_baseline_refresh_24"
+        android:title="Refresh"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
