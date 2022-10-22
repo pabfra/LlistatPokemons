@@ -12,7 +12,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="@string/weight"
+        tools:text="Peso:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toEndOf="@+id/imgPokemonFront"
