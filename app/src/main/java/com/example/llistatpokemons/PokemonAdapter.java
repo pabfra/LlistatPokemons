@@ -41,9 +41,9 @@ public class PokemonAdapter extends ArrayAdapter<Pokemon> {
         TextView txtWeight = convertView.findViewById(R.id.txtWeight);
         ImageView imgPokemonFront = convertView.findViewById(R.id.imgPokemonFront);
 
-        txtListName.setText(pokemon.getName());
-        txtHeight.setText(String.valueOf(pokemon.getHeight()));
-        txtWeight.setText(String.valueOf(pokemon.getWeight()));
+        txtListName.setText(pokemon.getName().toUpperCase());
+        txtHeight.append(String.valueOf(pokemon.getHeight()));
+        txtWeight.append(String.valueOf(pokemon.getWeight()));
 
         Glide.with(getContext()).load(pokemon.getImage()).into(imgPokemonFront);
 
