@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+import com.bumptech.glide.Glide;
 import com.example.llistatpokemons.databinding.LvPokemonRowBinding;
 
 import java.util.ArrayList;
@@ -38,12 +39,13 @@ public class PokemonAdapter extends ArrayAdapter<Pokemon> {
         TextView txtListName = convertView.findViewById(R.id.txtListName);
         TextView txtHeight = convertView.findViewById(R.id.txtHeight);
         TextView txtWeight = convertView.findViewById(R.id.txtWeight);
-        ImageView imgView = convertView.findViewById(R.id.imgPokemonFront);
+        ImageView imgPokemonFront = convertView.findViewById(R.id.imgPokemonFront);
 
         txtListName.setText(pokemon.getName());
         txtHeight.setText(String.valueOf(pokemon.getHeight()));
         txtWeight.setText(String.valueOf(pokemon.getWeight()));
 
+        Glide.with(getContext()).load(pokemon.getImage()).into(imgPokemonFront);
 
         return convertView;
     }
