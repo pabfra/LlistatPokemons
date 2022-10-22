@@ -43,11 +43,17 @@ public class FirstFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //String[] pokemonsPrueba = {"Bulbassaur", "Pikachu", "Charmander"};
-        ArrayList<String> items = new ArrayList<>();
-        adapter = new ArrayAdapter<String>(
+        //ArrayList<String> items = new ArrayList<>();
+       /* adapter = new ArrayAdapter<String>(
                 getContext(),
                 R.layout.lv_pokemon_row,
                 R.id.txtListName,
+                items
+        );*/
+        ArrayList<Pokemon> items = new ArrayList<>();
+        adapter = new PokemonAdapter(
+                getContext(),
+                R.layout.lv_pokemon_row,
                 items
         );
 
@@ -68,7 +74,7 @@ public class FirstFragment extends Fragment {
 
         executor.execute(() -> {
             PokemonApi api = new PokemonApi();
-            ArrayList<Pokemon>  pokemons = api.getPokemons();
+            ArrayList<Pokemon> pokemons = api.getPokemons();
 
             handler.post(() -> {
                 adapter.clear();

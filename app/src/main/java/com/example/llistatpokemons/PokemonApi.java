@@ -33,6 +33,7 @@ public class PokemonApi {
                 String spriteDefault = sprites.getString("front_default");
                 pokemon.setImage(spriteDefault);
                 pokemon.setHeight(jsonDetails.getInt("height"));
+                pokemon.setWeight(jsonDetails.getInt("weight"));
                 pokemons.add(pokemon);
             }
             return pokemons;
